@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yu-chen <yu-chen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 18:00:35 by yu-chen           #+#    #+#             */
-/*   Updated: 2024/07/31 18:00:36 by yu-chen          ###   ########.fr       */
+/*   Created: 2024/07/31 17:59:35 by yu-chen           #+#    #+#             */
+/*   Updated: 2024/08/02 16:08:27 by yu-chen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HUMANB_H
+#define HUMANB_H
 
-int main()
-{
-    Harl harl;
+#include <string>
+#include "Weapon.hpp"
 
-    harl.complain("DEBUG");
-    harl.complain("INFO");
-    harl.complain("WARNING");
-    harl.complain("ERROR");
-    // harl.complain("ERRORRRR");
-    return (0);
-}
+class HumanB {
+private:
+    std::string name;
+    Weapon *weapon;
+
+public:
+    HumanB(const std::string &name);
+	~HumanB();
+    void setWeapon(Weapon *weapon);
+    void attack() const;
+};
+
+#endif

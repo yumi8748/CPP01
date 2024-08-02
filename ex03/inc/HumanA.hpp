@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yu-chen <yu-chen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 18:00:35 by yu-chen           #+#    #+#             */
-/*   Updated: 2024/07/31 18:00:36 by yu-chen          ###   ########.fr       */
+/*   Created: 2024/07/31 17:59:33 by yu-chen           #+#    #+#             */
+/*   Updated: 2024/07/31 17:59:34 by yu-chen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HUMANA_H
+#define HUMANA_H
 
-int main()
-{
-    Harl harl;
+#include <string>
+#include "Weapon.hpp"
 
-    harl.complain("DEBUG");
-    harl.complain("INFO");
-    harl.complain("WARNING");
-    harl.complain("ERROR");
-    // harl.complain("ERRORRRR");
-    return (0);
-}
+class HumanA {
+private:
+    std::string name;
+    Weapon &weapon;
+
+public:
+    HumanA(const std::string &name, Weapon &weapon);
+    ~HumanA();
+	void attack() const;
+};
+
+#endif

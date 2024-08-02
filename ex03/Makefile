@@ -5,20 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yu-chen <yu-chen@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/31 18:00:45 by yu-chen           #+#    #+#              #
-#    Updated: 2024/07/31 18:00:46 by yu-chen          ###   ########.fr        #
+#    Created: 2024/07/31 18:00:22 by yu-chen           #+#    #+#              #
+#    Updated: 2024/07/31 18:00:23 by yu-chen          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = harlFilter
+NAME = violence
 
 CC = clang++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -I inc
 
-SRC = main.cpp Harl.cpp
-
-INC = Harl.hpp
+SRC = src/main.cpp src/Weapon.cpp src/HumanA.cpp src/HumanB.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -27,11 +25,11 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
 
-%.o: %.cpp $(INC)
+src/%.o: src/%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(NAME)
 
 fclean: clean
 	rm -f $(NAME)

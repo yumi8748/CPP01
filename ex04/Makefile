@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yu-chen <yu-chen@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/07/31 18:00:27 by yu-chen           #+#    #+#              #
+#    Updated: 2024/07/31 18:00:28 by yu-chen          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = replace
 
 CC = clang++
@@ -19,6 +31,9 @@ $(NAME): $(OBJ)
 clean:
 	rm -f $(OBJ) $(NAME)
 
-re: clean all
+fclean: clean
+	rm -f $(NAME)
 
-.PHONY: all clean re
+re: fclean all
+
+.PHONY: all clean fclean re

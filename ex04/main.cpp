@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yu-chen <yu-chen@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/31 18:00:24 by yu-chen           #+#    #+#             */
+/*   Updated: 2024/08/02 14:32:45 by yu-chen          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
 
 void replaceStringInFile(const std::string &filename, const std::string &s1, const std::string &s2) {
-    // 打開輸入文件
-    std::ifstream inFile(filename.c_str());  // 使用 c_str() 轉換 std::string 為 const char*
+    std::ifstream inFile(filename.c_str());
     if (!inFile) {
         std::cerr << "Error: Could not open the file " << filename << std::endl;
         return;
@@ -16,7 +27,11 @@ void replaceStringInFile(const std::string &filename, const std::string &s1, con
     std::string content = buffer.str();
     inFile.close();
 
-    // 替換字符串
+	if (content.find(s1) == std::string::npos) {
+		std::cerr << "Error: The string \"" << s1 << "\" was not found in the file " << filename << std::endl;
+        return;
+    }
+
     size_t pos = 0;
     while ((pos = content.find(s1, pos)) != std::string::npos) {
         content.erase(pos, s1.length());
@@ -24,9 +39,8 @@ void replaceStringInFile(const std::string &filename, const std::string &s1, con
         pos += s2.length();
     }
 
-    // 打開輸出文件
-    std::ofstream outFile((filename + ".replace").c_str());  // 使用 c_str() 轉換 std::string 為 const char*
-    if (!outFile) {
+    std::ofstream outFile((filename + ".replace").c_str());
+	if (!outFile) {
         std::cerr << "Error: Could not create the file " << filename << ".replace" << std::endl;
         return;
     }

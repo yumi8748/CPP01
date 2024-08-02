@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yu-chen <yu-chen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 18:00:35 by yu-chen           #+#    #+#             */
-/*   Updated: 2024/07/31 18:00:36 by yu-chen          ###   ########.fr       */
+/*   Created: 2024/07/31 17:59:37 by yu-chen           #+#    #+#             */
+/*   Updated: 2024/07/31 17:59:38 by yu-chen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef WEAPON_H
+#define WEAPON_H
 
-int main()
-{
-    Harl harl;
+#include <string>
 
-    harl.complain("DEBUG");
-    harl.complain("INFO");
-    harl.complain("WARNING");
-    harl.complain("ERROR");
-    // harl.complain("ERRORRRR");
-    return (0);
-}
+class Weapon {
+private:
+    std::string type;
+
+public:
+    Weapon(const std::string &type);
+    const std::string &getType() const;
+    void setType(const std::string &newType);
+};
+
+#endif
