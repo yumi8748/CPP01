@@ -6,7 +6,7 @@
 /*   By: yu-chen <yu-chen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 17:59:55 by yu-chen           #+#    #+#             */
-/*   Updated: 2024/08/02 16:07:26 by yu-chen          ###   ########.fr       */
+/*   Updated: 2024/08/07 18:44:21 by yu-chen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ HumanB::~HumanB()
 {
 }
 
-void HumanB::setWeapon(Weapon *weapon) {
-    this->weapon = weapon;
+void HumanB::setWeapon(Weapon &weapon) {
+    this->weapon = &weapon;
 }
 
 void HumanB::attack() const {
